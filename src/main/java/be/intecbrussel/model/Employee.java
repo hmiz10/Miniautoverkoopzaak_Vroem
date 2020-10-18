@@ -10,11 +10,10 @@ import java.util.Objects;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int employeeNumber;
     private String lastName;
     private String firstName;
-    private double extension;
+    private String extension;
     private String email;
     private int officeCode;
     private int reportsTo;
@@ -22,7 +21,7 @@ public class Employee {
 
     public Employee (){}
 
-    public Employee(String lastName, String firstName, double extension, String email, int officeCode, int reportsTo, String jobTitle) {
+    public Employee(int employeeNumber, String lastName, String firstName, String extension, String email, int officeCode, int reportsTo, String jobTitle) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.extension = extension;
@@ -30,6 +29,7 @@ public class Employee {
         this.officeCode = officeCode;
         this.reportsTo = reportsTo;
         this.jobTitle = jobTitle;
+        this.employeeNumber = employeeNumber;
     }
 
 
@@ -57,11 +57,11 @@ public class Employee {
         this.firstName = firstName;
     }
 
-    public double getExtension() {
+    public String getExtension() {
         return extension;
     }
 
-    public void setExtension(double extension) {
+    public void setExtension(String extension) {
         this.extension = extension;
     }
 

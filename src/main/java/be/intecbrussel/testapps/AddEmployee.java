@@ -11,8 +11,8 @@ import java.sql.Statement;
 
 public class AddEmployee {
     public static void main(String[] args) {
-        Employee employee = new Employee("Coek", "Mark", 145255, "coek@hotmail.com", 63, 1023, "java developer");
         EmployeeDao  employeeDao = new EmployeeDaoJpaImpl();
+        Employee employee = new Employee(9000, "Coek", "Mark", "x145255", "coek@hotmail.com", 1, 1002, "java developer");
         employeeDao.createEmployee(employee);
     }
 }

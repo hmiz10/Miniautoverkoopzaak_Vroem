@@ -12,14 +12,15 @@ public class EmployeeDaoJpaImpl implements EmployeeDao {
 
     @Override
     public void createEmployee(Employee employee) {
+
         EntityManager entityManager = null;
         try{
             entityManager = emf.createEntityManager();
             EntityTransaction transaction = entityManager.getTransaction();
+            entityManager.find(Employee.class, employee.getEmployeeNumber());
             transaction.begin();
             entityManager.persist(employee);
             transaction.commit();
-
         } catch(Exception ex){
             ex.printStackTrace();
         } finally {
@@ -31,7 +32,7 @@ public class EmployeeDaoJpaImpl implements EmployeeDao {
 
     @Override
     public Employee readEmployee(int employeeNumber) {
-        Employee employee = new Employee();
+        Employee employee = null;
         EntityManager entityManager = null;
         try{
             entityManager = emf.createEntityManager();
@@ -48,7 +49,7 @@ public class EmployeeDaoJpaImpl implements EmployeeDao {
 
     @Override
     public Employee readEmployee(String employeeName) {
-        Employee employee = new Employee();
+        Employee employee = null;
         EntityManager entityManager = null;
         try{
             entityManager = emf.createEntityManager();

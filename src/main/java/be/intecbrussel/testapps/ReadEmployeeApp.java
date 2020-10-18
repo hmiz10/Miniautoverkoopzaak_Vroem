@@ -4,7 +4,7 @@ import be.intecbrussel.entities.EmployeeDao;
 import be.intecbrussel.entities.EmployeeDaoJpaImpl;
 import be.intecbrussel.model.Employee;
 
-public class EmployeeApp {
+public class ReadEmployeeApp {
     public static void main(String[] args) {
 
         EmployeeDao employeeDao = new EmployeeDaoJpaImpl();
