@@ -15,13 +15,17 @@ public class Employee {
     private String firstName;
     private String extension;
     private String email;
-    private int officeCode;
-    private int reportsTo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "officeCode")
+    private Office officeCode;
+    @ManyToOne
+    @JoinColumn(name = "reportsTo")
+    private Employee reportsTo;
     private String jobTitle;
 
     public Employee (){}
 
-    public Employee(int employeeNumber, String lastName, String firstName, String extension, String email, int officeCode, int reportsTo, String jobTitle) {
+    public Employee(int employeeNumber, String lastName, String firstName, String extension, String email, Office officeCode, Employee reportsTo, String jobTitle) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.extension = extension;
@@ -73,19 +77,19 @@ public class Employee {
         this.email = email;
     }
 
-    public int getOfficeCode() {
+    public Office getOfficeCode() {
         return officeCode;
     }
 
-    public void setOfficeCode(int officeCode) {
+    public void setOfficeCode(Office officeCode) {
         this.officeCode = officeCode;
     }
 
-    public int getReportsTo() {
+    public Employee getReportsTo() {
         return reportsTo;
     }
 
-    public void setReportsTo(int reportsTo) {
+    public void setReportsTo(Employee reportsTo) {
         this.reportsTo = reportsTo;
     }
 
